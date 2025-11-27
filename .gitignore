@@ -1,0 +1,16 @@
+/test-output/
+/target/
+/.idea/
+/.vscode/
+/*.iml
+/.mvn/
+/.settings/
+/.DS_Store
+*.log
+*.tmp
+node_modules/
+*.class
+/*.jar
+/.classpath
+/.project
+/.settings/
