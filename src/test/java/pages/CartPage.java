@@ -11,7 +11,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CartPage {
+public class CartPage  {
 
     private WebDriver driver;
     private WebDriverWait wait;
