@@ -31,7 +31,7 @@ public class CartPage {
     // Confirm we are actually on the cart page
     public boolean isOnCartPage() {
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(cartTitle));
+             wait.until(ExpectedConditions.visibilityOfElementLocated(cartTitle));
             String titleText = driver.findElement(cartTitle).getText().trim();
             return titleText.equalsIgnoreCase("Your Cart");
         } catch (Exception e) {
