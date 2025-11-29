@@ -69,14 +69,13 @@ This project currently includes **a small manual pause** in Cucumber and TestNG 
 ---
 
 ## Commit & push to GitHub (quick commands)
-Replace `<your-github-url>` with the repo URL you create on GitHub.
 
 ```bash
 git init
 git add .
 git commit -m "Initial commit — SauceDemo automation"
 git branch -M main
-git remote add origin <your-github-url>
+git remote add origin 'https://github.com/uttam512/demosite-automation.git'
 git push -u origin main
 
 
