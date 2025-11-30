@@ -150,15 +150,6 @@ Jenkins will:
 
 ---
 
-## ✔️ Why This Project Is Great for a QA Resume
-- Demonstrates real automation architecture
-- Shows Page Object Model + Hybrid framework skills
-- Uses both TestNG and Cucumber
-- Includes CI pipeline (big plus for recruiters)
-- Clean structure, easy to extend
-
----
-
 ## Author
 **Uttam Tyagi**  
 QA Automation Learner  
