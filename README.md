@@ -1,96 +1,166 @@
-# SauceDemo Automation — Java + Selenium + TestNG + Cucumber
+# SauceDemo Automation Framework  
+### Java • Selenium • TestNG • Cucumber • Maven • Jenkins (CI)
 
-A beginner-friendly automation framework for the SauceDemo demo site.  
-Implements Page Object Model (POM) with TestNG and Cucumber (TestNG runner).
+A beginner–friendly automation framework designed to demonstrate real-world QA automation skills using a clean Page Object Model structure, TestNG, Cucumber (TestNG runner), and continuous integration via Jenkins.
 
-## What’s included
-- Java + Selenium WebDriver (Page Objects)
-- TestNG tests: `LoginTest`, `ProductTest`, `CartTest`
-- Cucumber feature files + step definitions + `CucumberTestRunner`
-- Simple `DriverFactory` for Chrome (WebDriverManager)
-- `testng.xml` suite and feature files under `src/test/resources/features`
-- NOTE: Current project contains a small manual pause after login to allow dismissing a Chrome password popup (documented below).
+This project automates end-to-end flows on the public test website **SauceDemo**.
 
 ---
 
-## Project structure (important parts)
+## ✔️ What This Project Demonstrates
+- Java + Selenium WebDriver (Page Object Model)
+- TestNG framework (test suites, data providers, assertions)
+- Cucumber BDD (Gherkin scenarios + Step Definitions + Hooks)
+- Hybrid TestNG + Cucumber execution model
+- Maven build automation (pom dependencies, surefire)
+- Git + GitHub version control
+- Jenkins CI Pipeline using a `Jenkinsfile`
+- Clean project structure for future extension
+
+---
+
+## ✔️ Project Structure
+```
 src/
-test/
-java/
-    pages/ (Page Objects)
-    tests/ (TestNG tests + runner)
-    steps/ (Cucumber step defs + Hooks)
-    utils/ (DriverFactory)
-resources/
-    features/ (Cucumber .feature files)
-testng.xml
-pom.xml
+ └── test/
+      ├── java/
+      │    ├── pages/       (POM: LoginPage, ProductPage, CartPage)
+      │    ├── steps/       (Cucumber Step Definitions + Hooks)
+      │    ├── tests/       (TestNG tests + Cucumber Runner)
+      │    └── utils/       (DriverFactory)
+      │
+      └── resources/
+           └── features/    (Cucumber feature files)
+testng.xml                  (TestNG suite)
+pom.xml                     (Maven dependencies)
+Jenkinsfile                 (Jenkins Pipeline)
 README.md
+```
 
 ---
 
-## Quick prerequisites
-- Java 11+ or 17+ installed
-- Maven installed
-- Chrome browser installed (WebDriverManager will fetch driver)
-- An IDE (Eclipse / IntelliJ) or use command line
+## ✔️ Automated Test Coverage
+
+### **Cucumber Scenarios**
+- Successful login  
+- Add product to cart  
+- Verify product appears in cart  
+
+### **TestNG Tests**
+- Valid login test  
+- Invalid login tests (DataProvider)  
+- Add product to cart test  
+- Validate cart item details  
 
 ---
 
-## How to run
+## ✔️ How to Run Locally
 
-### Run full TestNG suite (all TestNG test classes)
-
-From project root:
-
+### **Run TestNG Suite**
+```
 mvn test
+```
 
-or run testng.xml from IDE: Right click -> Run As -> TestNG Suite
-
-### Run the Cucumber feature suite (via the TestNG Cucumber runner)
-- Run `tests.CucumberTestRunner` as TestNG Test in your IDE, or `mvn test` if runner is included in suite.
-
-### Run ONLY a single Cucumber feature (recommended while developing)
-- Add a tag (e.g. `@cart`) above your feature and update `@CucumberOptions(tags = "@cart")` in `CucumberTestRunner`, then run the runner.
-
-## Slow mode (visual debugging)
-If you want to slow the steps so you can watch actions:
-- Add VM argument: -Dslow=true
-...
-
-## IMPORTANT: Manual Chrome popup note
-Some Chrome installations show a **Save/Update password** popup right after login.  
-This project currently includes **a small manual pause** in Cucumber and TestNG setups so you can click **OK** on that popup when it first appears.
-
-- Pause locations:
-  - `ProductCartSteps` `@Given` (Cucumber) — `Thread.sleep(...)`
-  - `ProductTest` / `CartTest` `@BeforeMethod` (TestNG) — `Thread.sleep(...)`
+Or in Eclipse:  
+**Right-click → testng.xml → Run As → TestNG Suite**
 
 ---
 
-## Commit & push to GitHub (quick commands)
+### **Run Cucumber Tests**
+Right-click the class:
+```
+tests.CucumberTestRunner
+```
+→ Run As → TestNG Test
 
-```bash
-git init
-git add .
-git commit -m "Initial commit — SauceDemo automation"
-git branch -M main
-git remote add origin 'https://github.com/uttam512/demosite-automation.git'
-git push -u origin main
+---
 
+### **Run a Single Cucumber Feature (Recommended)**
+Add a tag in your feature:
+```gherkin
+@cart
+Feature: Product Cart
+```
 
+Update runner:
+```java
+@CucumberOptions(tags = "@cart")
+```
 
+---
 
+## ✔️ Slow-Mode for Beginners
+To visually watch each step:
+```
+-Dslow=true
+```
 
+Set this in Eclipse → Run Configurations → VM Arguments.
 
+---
 
+## ⚠️ Chrome Password Popup Note
+Some Chrome setups show a password-save popup after login.  
+This framework temporarily includes a small pause so the popup can be dismissed manually.  
+The project can be enhanced later using ChromeOptions to suppress the popup completely.
 
+---
 
+## ✔️ Jenkins CI Setup
 
+This project includes a complete **Jenkins Pipeline** using a `Jenkinsfile`.  
+The pipeline performs:
 
+- Checkout from GitHub  
+- Maven clean + test  
+- HTML + JSON report generation  
+- Post-build archiving  
 
+Trigger: Manual build or GitHub webhook (optional)
 
+---
 
+## ✔️ How to Run in Jenkins (Pipeline)
 
+1. Create a Pipeline job  
+2. Select: **Pipeline script from SCM**  
+3. SCM: Git → paste your repo URL  
+4. Jenkinsfile path (default):  
+```
+Jenkinsfile
+```
+5. Save → Build Now
 
+Jenkins will:
+- Clone project  
+- Install dependencies  
+- Run TestNG + Cucumber  
+- Archive reports
+
+---
+
+## ✔️ Technologies Used
+- **Language:** Java  
+- **Build Tool:** Maven  
+- **Testing Framework:** TestNG  
+- **BDD:** Cucumber  
+- **Browser Automation:** Selenium WebDriver  
+- **CI/CD:** Jenkins  
+- **Version Control:** Git + GitHub  
+
+---
+
+## ✔️ Why This Project Is Great for a QA Resume
+- Demonstrates real automation architecture
+- Shows Page Object Model + Hybrid framework skills
+- Uses both TestNG and Cucumber
+- Includes CI pipeline (big plus for recruiters)
+- Clean structure, easy to extend
+
+---
+
+## Author
+**Uttam Tyagi**  
+QA Automation Learner  
+GitHub: https://github.com/uttam512
 
