@@ -7,7 +7,6 @@ import utils.DriverFactory;
 
 public class Hooks {
 
-    // Simple static driver for now (no parallel)
     private static WebDriver driver;
 
     @Before
@@ -23,7 +22,6 @@ public class Hooks {
         }
     }
 
-    // Simple helper for steps to get current driver
     public static WebDriver getDriver() {
         return driver;
     }
